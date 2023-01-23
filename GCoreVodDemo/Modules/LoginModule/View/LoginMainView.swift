@@ -9,6 +9,7 @@ import UIKit
 
 protocol LoginMainViewDelegate: AnyObject {
     func signOn(username: String, password: String)
+    func showDemoScreen()
     func errorHandle(_ error: Error)
 }
 
@@ -16,11 +17,11 @@ final class LoginMainView: UIView {
     weak var delegate: LoginMainViewDelegate?
 
     var isLoading = false {
-        didSet { signButton.isEnabled = isLoading }
+        didSet { signButton.isEnabled = !isLoading }
     }
-    
+
     private let gcoreLogo = UIImageView(image: .gcoreLogo)
-    
+
     private let labelTitle: UILabel = {
         let label = UILabel()
         label.text = "Welcome"
@@ -41,7 +42,7 @@ final class LoginMainView: UIView {
         return label
     }()
 
-    private let textFieldPassword: TextField = {
+    private lazy var textFieldPassword: TextField = {
         let hidingPasswordButton = UIButton()
         hidingPasswordButton.setImage(.closeEyeIcon, for: .normal)
         hidingPasswordButton.addTarget(self, action: #selector(tapHidingPasswordButton(sender:)), for: .touchUpInside)
@@ -56,12 +57,23 @@ final class LoginMainView: UIView {
     
     private let textFieldEmail = TextField(placeholder: "Email")
     
-    private let signButton: UIButton = {
+    private lazy var signButton: UIButton = {
         let button = Button()
         button.addTarget(self, action: #selector(tapSignButton), for: .touchUpInside)
         button.backgroundColor = .grey800
         button.layer.cornerRadius = 4
         button.setTitle("Sign in", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        
+        return button
+    }()
+
+    private lazy var demoButton: UIButton = {
+        let button = Button()
+        button.addTarget(self, action: #selector(tapDemoButton), for: .touchUpInside)
+        button.backgroundColor = .grey800
+        button.layer.cornerRadius = 4
+        button.setTitle("See demo", for: .normal)
         button.setTitleColor(.white, for: .normal)
         
         return button
@@ -105,6 +117,11 @@ final class LoginMainView: UIView {
         isLoading = true
         delegate?.signOn(username: credential.username, password: credential.password)
     }
+
+    @objc private func tapDemoButton() {
+        guard !isLoading else { return }
+        delegate?.showDemoScreen()
+    }
     
     private func getCredential() -> (username: String, password: String)? {
         guard let username = textFieldEmail.text, let password = textFieldPassword.text else { return nil }
@@ -112,7 +129,7 @@ final class LoginMainView: UIView {
     }
     
     private func initLayout() {
-        for view in [gcoreLogo, labelTitle, labelSubtitle, textFieldEmail, textFieldPassword, signButton] {
+        for view in [gcoreLogo, labelTitle, labelSubtitle, textFieldEmail, textFieldPassword, signButton, demoButton] {
             addSubview(view)
             view.translatesAutoresizingMaskIntoConstraints = false
         }
@@ -140,7 +157,12 @@ final class LoginMainView: UIView {
             signButton.centerXAnchor.constraint(equalTo: centerXAnchor),
             signButton.widthAnchor.constraint(equalToConstant: ScreenSize.width - 32),
             signButton.topAnchor.constraint(equalTo: textFieldPassword.bottomAnchor, constant: 32),
-            signButton.heightAnchor.constraint(equalToConstant: 48)
+            signButton.heightAnchor.constraint(equalToConstant: 48),
+
+            demoButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+            demoButton.widthAnchor.constraint(equalToConstant: ScreenSize.width - 32),
+            demoButton.topAnchor.constraint(equalTo: signButton.bottomAnchor, constant: 10),
+            demoButton.heightAnchor.constraint(equalToConstant: 48),
         ])
     }
 }

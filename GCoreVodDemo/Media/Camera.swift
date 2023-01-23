@@ -9,7 +9,7 @@ import Foundation
 import AVFoundation
 
 enum CameraSetupError: Error {
-    case accessDevices, initializeCameraInputs
+    case accessDevices, initializeCameraInputs, recordMovieDidFail
 }
 
 protocol CameraDelegate: AnyObject {
@@ -18,13 +18,8 @@ protocol CameraDelegate: AnyObject {
 }
 
 final class Camera: NSObject {
-    var movieOutput: AVCaptureMovieFileOutput! {
-        didSet {
-            movieOutput.maxRecordedDuration = CMTime(seconds: 121, preferredTimescale: 600)
-        }
-    }
+    var movieOutput: AVCaptureMovieFileOutput!
     weak var delegate: CameraDelegate?
-    private var videoDeviceInput: AVCaptureDeviceInput!
     private var rearCameraInput: AVCaptureDeviceInput!
     private var frontCameraInput: AVCaptureDeviceInput!
     private let captureSession: AVCaptureSession
@@ -53,7 +48,6 @@ final class Camera: NSObject {
                 
                 captureSession.addInput(rearCameraInput)
                 captureSession.addInput(audioInput)
-                self.videoDeviceInput = rearCameraInput
                 self.rearCameraInput = rearCameraInput
                 self.frontCameraInput = frontCameraInput
                 captureSession.addOutput(movieOutput)
@@ -117,7 +111,7 @@ final class Camera: NSObject {
 extension Camera: AVCaptureFileOutputRecordingDelegate {
     func fileOutput(_ output: AVCaptureFileOutput, didFinishRecordingTo outputFileURL: URL, from connections: [AVCaptureConnection], error: Error?) {
         if let error = error {
-            print("Error recording movie: \(error.localizedDescription)")
+            print("Error recording movie: \((error as NSError).description)")
         } else {
             timer?.invalidate()
             timer = nil

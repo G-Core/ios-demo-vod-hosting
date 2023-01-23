@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1320"
+   LastUpgradeVersion = "1420"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "63AE01AB288564C200CC92D2"
-               BuildableName = "GCoreVodDemo.app"
-               BlueprintName = "GCoreVodDemo"
-               ReferencedContainer = "container:GCoreVodDemo.xcodeproj">
+               BuildableName = "GcoreVodDemo.app"
+               BlueprintName = "GcoreVodDemo"
+               ReferencedContainer = "container:GcoreVodDemo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,26 +28,6 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "63AE01C1288564C300CC92D2"
-               BuildableName = "GCoreVODsDemoTests.xctest"
-               BlueprintName = "GCoreVODsDemoTests"
-               ReferencedContainer = "container:GCoreVodDemo.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "63AE01CB288564C300CC92D2"
-               BuildableName = "GCoreVODsDemoUITests.xctest"
-               BlueprintName = "GCoreVODsDemoUITests"
-               ReferencedContainer = "container:GCoreVodDemo.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -65,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "63AE01AB288564C200CC92D2"
-            BuildableName = "GCoreVodDemo.app"
-            BlueprintName = "GCoreVodDemo"
-            ReferencedContainer = "container:GCoreVodDemo.xcodeproj">
+            BuildableName = "GcoreVodDemo.app"
+            BlueprintName = "GcoreVodDemo"
+            ReferencedContainer = "container:GcoreVodDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -82,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "63AE01AB288564C200CC92D2"
-            BuildableName = "GCoreVodDemo.app"
-            BlueprintName = "GCoreVodDemo"
-            ReferencedContainer = "container:GCoreVodDemo.xcodeproj">
+            BuildableName = "GcoreVodDemo.app"
+            BlueprintName = "GcoreVodDemo"
+            ReferencedContainer = "container:GcoreVodDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

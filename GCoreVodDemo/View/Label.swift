@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class Label: UILabel {
+class Label: UILabel {
     var insets = UIEdgeInsets(top: 5, left: 16, bottom: 6, right: 16)
     
     override func drawText(in rect: CGRect) {

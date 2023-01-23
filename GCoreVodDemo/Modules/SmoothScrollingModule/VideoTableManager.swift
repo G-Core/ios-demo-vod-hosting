@@ -214,13 +214,6 @@ extension VideoTableManager: ASTableDelegate {
             let nextVideoIndex = Int(scrollView.contentOffset.y / scrollView.frame.size.height) + 1
         
             if nextVideoIndex < dataTotalCount {
-                let indexPath = IndexPath(item: nextVideoIndex, section: 0)
-                if let cell = tableView?.nodeForRow(at: indexPath) as? VODSmoothCell, !cell.isPlayerDisplay {
-                    cell.isPlayerDisplay = true
-                    cell.playerNode.play()
-                    cell.playerNode.pause()
-                }
-
                 let indexForNextData = nextVideoIndex - itemCountInPrevData - itemCountInCurrentData
                 if nextData.indices.contains(indexForNextData) {
                     prevData = currentData
