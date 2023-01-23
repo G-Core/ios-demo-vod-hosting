@@ -8,8 +8,8 @@
 import UIKit 
 
 final class VODDataView: UIView {
-    private let nameLabel = UILabel()
-    private let idLabel = UILabel()
+    private let nameLabel = RoundedLabel()
+    private let idLabel = RoundedLabel()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -24,11 +24,6 @@ final class VODDataView: UIView {
     func setupData(with vod: VOD) {
         nameLabel.text = "Name: \(vod.name)"
         idLabel.text = "ID: \(vod.id)"
-        
-        [nameLabel, idLabel].forEach {
-            $0.widthAnchor.constraint(equalToConstant: $0.intrinsicContentSize.width + 20).isActive = true
-            $0.heightAnchor.constraint(equalToConstant: $0.intrinsicContentSize.height + 10).isActive = true
-        }
     }
 
     private func setupView() {
@@ -36,19 +31,19 @@ final class VODDataView: UIView {
         isUserInteractionEnabled = false
 
         [nameLabel, idLabel].forEach {
-            $0.translatesAutoresizingMaskIntoConstraints = false
+            $0.numberOfLines = 0
             $0.textColor = .white
             $0.backgroundColor = .darkGray
-            $0.font = .systemFont(ofSize: 17)
-            $0.clipsToBounds = true
-            $0.layer.cornerRadius = 15
-            $0.textAlignment = .center
+            $0.font = .systemFont(ofSize: 15)
+            $0.textAlignment = .left
+            $0.insets.right = 5
+            $0.insets.left = 5
         }
 
         let stackView = UIStackView(arrangedSubviews: [nameLabel, idLabel])
         stackView.axis = .vertical
         stackView.alignment = .leading
-        stackView.distribution = .fill
+        stackView.distribution = .equalSpacing
         stackView.spacing = 10
 
         stackView.translatesAutoresizingMaskIntoConstraints = false

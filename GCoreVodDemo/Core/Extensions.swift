@@ -58,4 +58,29 @@ extension UIImage {
     static var accountIcon: UIImage {
         UIImage(named: "account_icon")!
     }
+
+    static var soundIcon: UIImage {
+        UIImage(named: "sound")!
+    }
+
+    static var muteIcon: UIImage {
+        UIImage(named: "mute")!
+    }
+}
+
+extension UIButton {
+    open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        alpha = 0.5
+    }
+
+    open override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        alpha = 1
+    }
+
+    open override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesCancelled(touches, with: event)
+        alpha = 1
+    }
 }

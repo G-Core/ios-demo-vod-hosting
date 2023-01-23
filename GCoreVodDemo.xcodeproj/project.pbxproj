@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4E6642EA369E9ED55301F86B /* Pods_GCoreVodDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77BAE2604CB889BDFDC3A150 /* Pods_GCoreVodDemo.framework */; };
+		6306275C28F4115300AC6C19 /* RoundedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6306275B28F4115300AC6C19 /* RoundedLabel.swift */; };
 		630930D728EC51F500C7ECC1 /* VideoTableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630930D628EC51F500C7ECC1 /* VideoTableManager.swift */; };
+		63124263295642E800E689DE /* VodMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 63124262295642E800E689DE /* VodMock.json */; };
+		632CF2CC2953228200C674B9 /* VODButtonStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632CF2CB2953228200C674B9 /* VODButtonStack.swift */; };
 		6334520628A3A82D00A68DF4 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6334520528A3A82D00A68DF4 /* ProfileController.swift */; };
 		6334520828A3A84E00A68DF4 /* ProfileMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6334520728A3A84E00A68DF4 /* ProfileMainView.swift */; };
 		6334522F28A5BFE200A68DF4 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6334522E28A5BFE200A68DF4 /* Label.swift */; };
@@ -58,11 +60,17 @@
 		63C9F03328CE81C50001A707 /* VODDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C9F03228CE81C50001A707 /* VODDataView.swift */; };
 		63DEF2D028AA91740037F96F /* SmoothScrollingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DEF2CF28AA91740037F96F /* SmoothScrollingController.swift */; };
 		63DEF2D228AA91850037F96F /* SmoothScrollingMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DEF2D128AA91850037F96F /* SmoothScrollingMainView.swift */; };
+		73F99A405002DAC646EAC33A /* Pods_GcoreVodDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB31978C4A981B1346D7563 /* Pods_GcoreVodDemo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		43C1D8434B9941486C729EDB /* Pods-GcoreVodDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GcoreVodDemo.debug.xcconfig"; path = "Target Support Files/Pods-GcoreVodDemo/Pods-GcoreVodDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		4EC46FF8BC395593CD551433 /* Pods-GcoreVodDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GcoreVodDemo.release.xcconfig"; path = "Target Support Files/Pods-GcoreVodDemo/Pods-GcoreVodDemo.release.xcconfig"; sourceTree = "<group>"; };
 		50A261CF9D1B262C7E10A0F4 /* Pods-GCoreVodDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GCoreVodDemo.release.xcconfig"; path = "Target Support Files/Pods-GCoreVodDemo/Pods-GCoreVodDemo.release.xcconfig"; sourceTree = "<group>"; };
+		6306275B28F4115300AC6C19 /* RoundedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedLabel.swift; sourceTree = "<group>"; };
 		630930D628EC51F500C7ECC1 /* VideoTableManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTableManager.swift; sourceTree = "<group>"; };
+		63124262295642E800E689DE /* VodMock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = VodMock.json; path = GCoreVodDemo/VodMock.json; sourceTree = SOURCE_ROOT; };
+		632CF2CB2953228200C674B9 /* VODButtonStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VODButtonStack.swift; sourceTree = "<group>"; };
 		6334520528A3A82D00A68DF4 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		6334520728A3A84E00A68DF4 /* ProfileMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainView.swift; sourceTree = "<group>"; };
 		6334522E28A5BFE200A68DF4 /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
@@ -89,7 +97,7 @@
 		6396B30D28A1D8C500C26990 /* VODRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VODRequest.swift; sourceTree = "<group>"; };
 		6396B31028A1DB2C00C26990 /* ViewingCollectionFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewingCollectionFooter.swift; sourceTree = "<group>"; };
 		6396B31128A1DB2C00C26990 /* ViewingCollectionFooter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewingCollectionFooter.xib; sourceTree = "<group>"; };
-		63AE01AC288564C200CC92D2 /* GCoreVodDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GCoreVodDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		63AE01AC288564C200CC92D2 /* GcoreVodDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GcoreVodDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63AE01AF288564C200CC92D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63AE01B3288564C200CC92D2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		63AE01B8288564C300CC92D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -111,7 +119,7 @@
 		63C9F03228CE81C50001A707 /* VODDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VODDataView.swift; sourceTree = "<group>"; };
 		63DEF2CF28AA91740037F96F /* SmoothScrollingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmoothScrollingController.swift; sourceTree = "<group>"; };
 		63DEF2D128AA91850037F96F /* SmoothScrollingMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmoothScrollingMainView.swift; sourceTree = "<group>"; };
-		77BAE2604CB889BDFDC3A150 /* Pods_GCoreVodDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GCoreVodDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEB31978C4A981B1346D7563 /* Pods_GcoreVodDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GcoreVodDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE08FEE42A0AFA9728D635AF /* Pods-GCoreVodDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GCoreVodDemo.debug.xcconfig"; path = "Target Support Files/Pods-GCoreVodDemo/Pods-GCoreVodDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,7 +131,7 @@
 				6396B30C28A1D5E100C26990 /* Kingfisher in Frameworks */,
 				6396B2F528A0FFF200C26990 /* KeychainAccess in Frameworks */,
 				635515FE28A2FEBB003C4FCE /* TUSKit in Frameworks */,
-				4E6642EA369E9ED55301F86B /* Pods_GCoreVodDemo.framework in Frameworks */,
+				73F99A405002DAC646EAC33A /* Pods_GcoreVodDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,7 +240,7 @@
 		63AE01A3288564C200CC92D2 = {
 			isa = PBXGroup;
 			children = (
-				63AE01AE288564C200CC92D2 /* GCoreVodDemo */,
+				63AE01AE288564C200CC92D2 /* GcoreVodDemo */,
 				63AE01AD288564C200CC92D2 /* Products */,
 				D4395ED6F29E6DABB6F0D632 /* Pods */,
 				A0799FBE6E7494ABED0C8236 /* Frameworks */,
@@ -242,12 +250,12 @@
 		63AE01AD288564C200CC92D2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				63AE01AC288564C200CC92D2 /* GCoreVodDemo.app */,
+				63AE01AC288564C200CC92D2 /* GcoreVodDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		63AE01AE288564C200CC92D2 /* GCoreVodDemo */ = {
+		63AE01AE288564C200CC92D2 /* GcoreVodDemo */ = {
 			isa = PBXGroup;
 			children = (
 				63E2855128A677FE00BCAE01 /* Core */,
@@ -262,7 +270,7 @@
 				63AE01AF288564C200CC92D2 /* AppDelegate.swift */,
 				635BAE2128A0FB6C00B13B71 /* Settings.swift */,
 			);
-			path = GCoreVodDemo;
+			path = GcoreVodDemo;
 			sourceTree = "<group>";
 		};
 		63AE01EC2885A73500CC92D2 /* Network */ = {
@@ -291,6 +299,7 @@
 			children = (
 				63AE01E62885864800CC92D2 /* TextField.swift */,
 				634F07AE288B07250093F8E7 /* Button.swift */,
+				6306275B28F4115300AC6C19 /* RoundedLabel.swift */,
 				6334522E28A5BFE200A68DF4 /* Label.swift */,
 				63C3BE5328B5544100C2A612 /* EmptyStateView.swift */,
 			);
@@ -335,6 +344,7 @@
 			children = (
 				63C9F03028CE5C220001A707 /* VODSmoothCell.swift */,
 				63C9F03228CE81C50001A707 /* VODDataView.swift */,
+				632CF2CB2953228200C674B9 /* VODButtonStack.swift */,
 			);
 			path = Collection;
 			sourceTree = "<group>";
@@ -356,6 +366,7 @@
 		63E2855128A677FE00BCAE01 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				63124262295642E800E689DE /* VodMock.json */,
 				63AE01E1288572A900CC92D2 /* Constants.swift */,
 				63AE01E4288574E000CC92D2 /* Extensions.swift */,
 				63AE01F32885A81B00CC92D2 /* ViewControllers */,
@@ -366,7 +377,7 @@
 		A0799FBE6E7494ABED0C8236 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				77BAE2604CB889BDFDC3A150 /* Pods_GCoreVodDemo.framework */,
+				CEB31978C4A981B1346D7563 /* Pods_GcoreVodDemo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -376,6 +387,8 @@
 			children = (
 				FE08FEE42A0AFA9728D635AF /* Pods-GCoreVodDemo.debug.xcconfig */,
 				50A261CF9D1B262C7E10A0F4 /* Pods-GCoreVodDemo.release.xcconfig */,
+				43C1D8434B9941486C729EDB /* Pods-GcoreVodDemo.debug.xcconfig */,
+				4EC46FF8BC395593CD551433 /* Pods-GcoreVodDemo.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -383,9 +396,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		63AE01AB288564C200CC92D2 /* GCoreVodDemo */ = {
+		63AE01AB288564C200CC92D2 /* GcoreVodDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 63AE01D6288564C300CC92D2 /* Build configuration list for PBXNativeTarget "GCoreVodDemo" */;
+			buildConfigurationList = 63AE01D6288564C300CC92D2 /* Build configuration list for PBXNativeTarget "GcoreVodDemo" */;
 			buildPhases = (
 				8A70668AF445E295DE3DD0CA /* [CP] Check Pods Manifest.lock */,
 				63AE01A8288564C200CC92D2 /* Sources */,
@@ -397,14 +410,14 @@
 			);
 			dependencies = (
 			);
-			name = GCoreVodDemo;
+			name = GcoreVodDemo;
 			packageProductDependencies = (
 				6396B2F428A0FFF200C26990 /* KeychainAccess */,
 				6396B30B28A1D5E100C26990 /* Kingfisher */,
 				635515FD28A2FEBB003C4FCE /* TUSKit */,
 			);
 			productName = GCoreVODsDemo;
-			productReference = 63AE01AC288564C200CC92D2 /* GCoreVodDemo.app */;
+			productReference = 63AE01AC288564C200CC92D2 /* GcoreVodDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -422,7 +435,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 63AE01A7288564C200CC92D2 /* Build configuration list for PBXProject "GCoreVodDemo" */;
+			buildConfigurationList = 63AE01A7288564C200CC92D2 /* Build configuration list for PBXProject "GcoreVodDemo" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -432,7 +445,7 @@
 			);
 			mainGroup = 63AE01A3288564C200CC92D2;
 			packageReferences = (
-				6396B2F328A0FFF200C26990 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				6396B2F328A0FFF200C26990 /* XCRemoteSwiftPackageReference "KeychainAccess.git" */,
 				6396B30A28A1D5E100C26990 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				635515FC28A2FEBB003C4FCE /* XCRemoteSwiftPackageReference "TUSKit" */,
 			);
@@ -440,7 +453,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				63AE01AB288564C200CC92D2 /* GCoreVodDemo */,
+				63AE01AB288564C200CC92D2 /* GcoreVodDemo */,
 			);
 		};
 /* End PBXProject section */
@@ -451,6 +464,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6396B31328A1DB2C00C26990 /* ViewingCollectionFooter.xib in Resources */,
+				63124263295642E800E689DE /* VodMock.json in Resources */,
 				63AE01BC288564C300CC92D2 /* LaunchScreen.storyboard in Resources */,
 				63AE01B9288564C300CC92D2 /* Assets.xcassets in Resources */,
 				6396B30928A1D18C00C26990 /* VODCell.xib in Resources */,
@@ -475,7 +489,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-GCoreVodDemo-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-GcoreVodDemo-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -488,15 +502,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-GCoreVodDemo/Pods-GCoreVodDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-GcoreVodDemo/Pods-GcoreVodDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-GCoreVodDemo/Pods-GCoreVodDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-GcoreVodDemo/Pods-GcoreVodDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GCoreVodDemo/Pods-GCoreVodDemo-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GcoreVodDemo/Pods-GcoreVodDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -512,6 +526,7 @@
 				63DEF2D028AA91740037F96F /* SmoothScrollingController.swift in Sources */,
 				6396B2FF28A1C28900C26990 /* MainController.swift in Sources */,
 				63AE01B4288564C200CC92D2 /* LoginViewController.swift in Sources */,
+				6306275C28F4115300AC6C19 /* RoundedLabel.swift in Sources */,
 				635515F428A2F541003C4FCE /* UploadMainView.swift in Sources */,
 				63DEF2D228AA91850037F96F /* SmoothScrollingMainView.swift in Sources */,
 				6396B30E28A1D8C500C26990 /* VODRequest.swift in Sources */,
@@ -543,6 +558,7 @@
 				63AE01F72885B11700CC92D2 /* HTTPMethod.swift in Sources */,
 				63AE01E2288572A900CC92D2 /* Constants.swift in Sources */,
 				634F079F2886AB090093F8E7 /* HTTPCommunicator.swift in Sources */,
+				632CF2CC2953228200C674B9 /* VODButtonStack.swift in Sources */,
 				63AE01EB2885993500CC92D2 /* VOD.swift in Sources */,
 				63AE01FB2885B4A800CC92D2 /* ErrorResponse.swift in Sources */,
 				635515F828A2F742003C4FCE /* Camera.swift in Sources */,
@@ -617,6 +633,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Gcore VOD";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -672,6 +689,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Gcore VOD";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -684,7 +702,7 @@
 		};
 		63AE01D7288564C300CC92D2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FE08FEE42A0AFA9728D635AF /* Pods-GCoreVodDemo.debug.xcconfig */;
+			baseConfigurationReference = 43C1D8434B9941486C729EDB /* Pods-GcoreVodDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -692,7 +710,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = H667QRM4K6;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = GCoreVodDemo/Info.plist;
+				INFOPLIST_FILE = GcoreVodDemo/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Gcore VOD";
 				INFOPLIST_KEY_NSCameraUsageDescription = "App need usage camera";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "App need usage microphone";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -706,7 +725,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "G-Core-Labs.GCoreVodDemo";
+				PRODUCT_BUNDLE_IDENTIFIER = "G-Core.GcoreVodDemo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -716,7 +735,7 @@
 		};
 		63AE01D8288564C300CC92D2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 50A261CF9D1B262C7E10A0F4 /* Pods-GCoreVodDemo.release.xcconfig */;
+			baseConfigurationReference = 4EC46FF8BC395593CD551433 /* Pods-GcoreVodDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -724,7 +743,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = H667QRM4K6;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = GCoreVodDemo/Info.plist;
+				INFOPLIST_FILE = GcoreVodDemo/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Gcore VOD";
 				INFOPLIST_KEY_NSCameraUsageDescription = "App need usage camera";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "App need usage microphone";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -738,7 +758,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "G-Core-Labs.GCoreVodDemo";
+				PRODUCT_BUNDLE_IDENTIFIER = "G-Core.GcoreVodDemo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -749,7 +769,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		63AE01A7288564C200CC92D2 /* Build configuration list for PBXProject "GCoreVodDemo" */ = {
+		63AE01A7288564C200CC92D2 /* Build configuration list for PBXProject "GcoreVodDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				63AE01D4288564C300CC92D2 /* Debug */,
@@ -758,7 +778,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		63AE01D6288564C300CC92D2 /* Build configuration list for PBXNativeTarget "GCoreVodDemo" */ = {
+		63AE01D6288564C300CC92D2 /* Build configuration list for PBXNativeTarget "GcoreVodDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				63AE01D7288564C300CC92D2 /* Debug */,
@@ -778,7 +798,7 @@
 				version = 2.2.1;
 			};
 		};
-		6396B2F328A0FFF200C26990 /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+		6396B2F328A0FFF200C26990 /* XCRemoteSwiftPackageReference "KeychainAccess.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess.git";
 			requirement = {
@@ -804,7 +824,7 @@
 		};
 		6396B2F428A0FFF200C26990 /* KeychainAccess */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 6396B2F328A0FFF200C26990 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			package = 6396B2F328A0FFF200C26990 /* XCRemoteSwiftPackageReference "KeychainAccess.git" */;
 			productName = KeychainAccess;
 		};
 		6396B30B28A1D5E100C26990 /* Kingfisher */ = {

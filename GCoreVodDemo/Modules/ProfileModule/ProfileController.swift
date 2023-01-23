@@ -8,6 +8,13 @@
 import UIKit
 
 final class ProfileController: BaseViewController {
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        if #available(iOS 13, *) {
+            return .darkContent
+        }
+        return .default
+    }
+
     private let mainView = ProfileMainView()
     
     override func loadView() {
@@ -22,6 +29,7 @@ extension ProfileController: ProfileMainViewDelegate {
         Settings.shared.userPassword = nil
         Settings.shared.accessToken = nil
         Settings.shared.refreshToken = nil
-        view?.window?.rootViewController = LoginViewController()
+        let navigation = UINavigationController(rootViewController: LoginViewController())
+        view?.window?.rootViewController = navigation
     }
 }

@@ -9,6 +9,7 @@ import UIKit
 
 protocol ViewingViewDelegate: AnyObject {
     func reload()
+    func refresh()
 }
 
 final class ViewingView: UIView {
@@ -39,7 +40,10 @@ final class ViewingView: UIView {
         view.register(cellNib, forCellWithReuseIdentifier: VODCell.reuseId)
         view.register(footerNib, forSupplementaryViewOfKind: footerKind, withReuseIdentifier: ViewingCollectionFooter.reuseId)
         view.backgroundColor = .white
-        
+
+        view.refreshControl = UIRefreshControl()
+        view.refreshControl?.tintColor = .grey600
+        view.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
         return view
     }()
 
@@ -84,6 +88,7 @@ final class ViewingView: UIView {
         indicatorView.isHidden = true
         emptyView.isHidden = true
         collectionView.isHidden = false
+        stopRefresh()
     }
     
     private func showEmptyState() {
@@ -134,6 +139,14 @@ private extension ViewingView {
             collectionView.rightAnchor.constraint(equalTo: rightAnchor),
             collectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
+    }
+
+    @objc func refresh() {
+        delegate?.refresh()
+    }
+
+    func stopRefresh() {
+        collectionView.refreshControl?.endRefreshing()
     }
 }
 

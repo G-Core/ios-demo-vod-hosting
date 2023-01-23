@@ -8,6 +8,7 @@
 import Foundation
 
 struct HTTPCommunicator: HTTPCommunicatable {
+    var isLogEnabled = false
     
     func request<Request>(
         _ request: Request,
@@ -39,6 +40,8 @@ struct HTTPCommunicator: HTTPCommunicatable {
         
         URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
             DispatchQueue.main.async {
+                logData(data)
+
                 if let error = error {
                     debugPrint(error)
                     return completion(.failure(error))
@@ -74,5 +77,20 @@ struct HTTPCommunicator: HTTPCommunicatable {
         }
        
         .resume()
+    }
+}
+
+private extension HTTPCommunicator {
+    func logData(_ data: Data?) {
+        guard isLogEnabled, let data else { return }
+        do {
+            let object = try JSONSerialization.jsonObject(with: data, options: [])
+            let objectData = try JSONSerialization.data(withJSONObject: object, options: [.prettyPrinted])
+            let string = NSString(data: objectData, encoding: String.Encoding.utf8.rawValue)
+            debugPrint(string ?? "json string not extracted")
+            print(" ")
+        } catch let error as NSError {
+            debugPrint(error.description + "\n")
+        }        
     }
 }

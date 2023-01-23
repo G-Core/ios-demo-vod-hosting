@@ -57,6 +57,6 @@ final class MainController: UITabBarController {
             selectedImage: .viewingSelectedIcon.withRenderingMode(.alwaysOriginal)
         )
 
-        viewControllers = [smoothScrollVC, uploadVC, profileVC]
+        viewControllers = [viewingVC, uploadVC, profileVC]
     }   
 }

@@ -9,10 +9,16 @@ import UIKit
 import AVKit
 import AsyncDisplayKit
 
+enum SmoothScrollingType {
+    case common, demo
+}
+
 final class SmoothScrollingController: BaseViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         .lightContent
     }
+
+    var type: SmoothScrollingType = .common
 
     private let mainView = SmoothScrollingMainView()
     private let tableManager = VideoTableManager()
@@ -36,30 +42,53 @@ final class SmoothScrollingController: BaseViewController {
         tableManager.tableView = mainView.tableView
         tableManager.delegate = self
 
-        loadVideos(page: 1, isNextPage: true)
-
-        NSLayoutConstraint.activate([
-            mainView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
-            mainView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            mainView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            mainView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor),
-        ])
+        if type == .common {
+            loadVideos(page: 1, isNextPage: true)
+        } else {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
+                self?.tableManager.add(loadedData: VOD.mock, isNextPage: true)
+                self?.mainView.state = .content
+            }
+        }
+        if type == .common {
+            NSLayoutConstraint.activate([
+                mainView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+                mainView.leftAnchor.constraint(equalTo: view.leftAnchor),
+                mainView.rightAnchor.constraint(equalTo: view.rightAnchor),
+                mainView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            ])
+        } else {
+            NSLayoutConstraint.activate([
+                mainView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+                mainView.leftAnchor.constraint(equalTo: view.leftAnchor),
+                mainView.rightAnchor.constraint(equalTo: view.rightAnchor),
+                mainView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            ])
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = false
+        navigationController?.navigationBar.backgroundColor = .black
+        navigationController?.navigationBar.tintColor = .white
         tabBarController?.tabBar.barTintColor = .black
+        setNeedsStatusBarAppearanceUpdate()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        navigationController?.navigationBar.isHidden = false
+        navigationController?.navigationBar.barTintColor = .white
         tabBarController?.tabBar.barTintColor = .white
     }
 
     override func errorHandle(_ error: Error) {
-        DispatchQueue.main.async { [self] in
-            if tableManager.currentData.isEmpty {
-                mainView.state = .empty
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+
+            if self.tableManager.currentData.isEmpty {
+                self.mainView.state = .empty
             }
             
             if let error = error as? ErrorResponse {
@@ -67,17 +96,17 @@ final class SmoothScrollingController: BaseViewController {
                 switch error {
                 case .invalidCredentials:
                     let action: ((UIAlertAction) -> Void)? = { [self] _ in
-                        mainView.window?.rootViewController = LoginViewController()
+                        self.mainView.window?.rootViewController = LoginViewController()
                     }
                     
-                    let alert = createAlert(title: error.description, actionHandler: action)
-                    present(alert, animated: true)
+                    let alert = self.createAlert(title: error.description, actionHandler: action)
+                    self.present(alert, animated: true)
                     
                 default:
-                    present(self.createAlert(title: error.description), animated: true)
+                    self.present(self.createAlert(title: error.description), animated: true)
                 }
             } else {
-                present(self.createAlert(), animated: true)
+                self.present(self.createAlert(), animated: true)
             }
         }
     }
@@ -116,7 +145,7 @@ extension SmoothScrollingController: SmoothScrollingMainViewDelegate {
 // MARK: VodTableManagerDelegate
 extension SmoothScrollingController: VideoTableManagerDelegate {
     func loadVideos(page: Int, isNextPage: Bool) {
-        guard !isLoading else { return }
+        guard !isLoading && type == .common else { return }
         if isNextPage && timeToRepeateRequest > 0 {
             return
         }
@@ -138,27 +167,28 @@ extension SmoothScrollingController: VideoTableManagerDelegate {
             launchTimer()
         }
 
-        http.request(requst) { [self] result in
-            DispatchQueue.main.async { [self] in
-                defer { isLoading = false }
+        http.request(requst) { [weak self] result in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                defer { self.isLoading = false }
 
                 switch result {
                 case .failure(let error):
-                    stopTimer()
+                    self.stopTimer()
 
                     if let error = error as? ErrorResponse, error == .invalidToken {
                         Settings.shared.accessToken = nil
-                        refreshToken()
+                        self.refreshToken()
                     } else {
-                        errorHandle(error)
+                        self.errorHandle(error)
                     }
 
                 case .success(let vodArray):
-                    tableManager.add(loadedData: vodArray, isNextPage: isNextPage)
-                    guard !tableManager.currentData.isEmpty else {
-                        return mainView.state = .empty
+                    self.tableManager.add(loadedData: vodArray, isNextPage: isNextPage)
+                    guard !self.tableManager.currentData.isEmpty else {
+                        return self.mainView.state = .empty
                     }
-                    mainView.state = .content   
+                    self.mainView.state = .content   
                 }
             }
         }

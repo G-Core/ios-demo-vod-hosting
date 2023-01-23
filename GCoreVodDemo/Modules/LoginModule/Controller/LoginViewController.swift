@@ -8,26 +8,42 @@
 import UIKit
 
 final class LoginViewController: BaseViewController {
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        .portrait
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        if #available(iOS 13, *) {
+            return .darkContent
+        }
+        return .default
+    }
+    
     private let mainView = LoginMainView(frame: UIScreen.main.bounds)
     
     override func loadView() {
         mainView.delegate = self
         view = mainView
     }
-
+    
     override func errorHandle(_ error: Error) {
         var message: String = "Unexpected error"
-
+        
         if let error = error as? LoginModuleError {
             message = error.description
         }
-
+        
         if let error = error as? ErrorResponse {
             message = error.description
         }
-
+        
         let alert = createAlert(title: "Error!", message: message, actionTitle: "Cancel", actionHandler: nil)
         present(alert, animated: true)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
     }
 }
 
@@ -50,5 +66,11 @@ extension LoginViewController: LoginMainViewDelegate {
                 self?.errorHandle(error)
             }
         }
+    }
+
+    func showDemoScreen() {
+        let vc = SmoothScrollingController()
+        vc.type = .demo
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

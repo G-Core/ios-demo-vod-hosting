@@ -23,3 +23,17 @@ struct Tokens: Decodable {
     let refresh: String
     let access: String
 }
+
+extension VOD {
+    static var mock: [VOD] {
+        guard let url = Bundle.main.url(forResource: "VodMock.json", withExtension: nil) else {
+            fatalError("Failed to locate VodMock.json in bundle.")
+        }
+
+        guard let data = try? Data(contentsOf: url) else {
+            fatalError("Failed to load VodMock.json) from bundle.")
+        }
+
+        return try! JSONDecoder().decode([VOD].self, from: data)
+    }
+}

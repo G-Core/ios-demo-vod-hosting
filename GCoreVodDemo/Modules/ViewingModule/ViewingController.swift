@@ -216,4 +216,8 @@ extension ViewingController: ViewingViewDelegate {
     func reload() {
         loadVODs(page: currentPage)
     }
+
+    func refresh() {
+        loadVODs(page: 1)
+    }
 }
