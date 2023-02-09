@@ -1,7 +1,7 @@
-# Gcore – viewing VOD on ios
+# Fully working video app for iOS: Video player, Smooth scrolling, Upload
 
 ## Demo
-<img src="/gif/iOS_Vod_demo_github.gif" height="800"/>
+<img src="/gif/iOS_Vod_demo_github.gif"/>
 
 ## Introduction
 Setup VOD viewing in 15 minutes in your iOS project instead of 7 days of work and setting network, smooth scrolling, upload parameters etc. This demo project is a quick tutorial how to view video from your own mobile app to an audience of 1 000 000+ views like Instagram, Youtube, etc.
@@ -32,13 +32,13 @@ This version makes it easy to use metadata to send files. You can easily add via
 
     Also, to record sound in the background, you need to add a **background mode** - **"Audio, AirPlay and Picture in Picture"**
 
-3) GCore API
+3) Gcore API
   To interact with the server, the **HTTPCommunicator** structure is used, through the API:
   ```swift
 enum GcoreAPI: String {
-    case authorization = "https://api.gcorelabs.com/iam/auth/jwt/login"
-    case videos = "https://api.gcorelabs.com/streaming/videos"
-    case refreshToken = "https://api.gcorelabs.com/iam/auth/jwt/refresh"
+    case authorization = "https://api.gcore.com/iam/auth/jwt/login"
+    case videos = "https://api.gcore.com/streaming/videos"
+    case refreshToken = "https://api.gcore.com/iam/auth/jwt/refresh"
 }
   ```
   Which create the necessary request through the **HTTPCommunicator** struct.
