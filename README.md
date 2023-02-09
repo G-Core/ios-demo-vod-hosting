@@ -37,7 +37,7 @@ This version makes it easy to use metadata to send files. You can easily add via
   ```swift
 enum GcoreAPI: String {
     case authorization = "https://api.gcore.com/iam/auth/jwt/login"
-    case videos = "https://api.gcore.com /streaming/videos"
+    case videos = "https://api.gcore.com/streaming/videos"
     case refreshToken = "https://api.gcore.com/iam/auth/jwt/refresh"
 }
   ```

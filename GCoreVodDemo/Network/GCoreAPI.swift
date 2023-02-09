@@ -8,8 +8,7 @@
 import Foundation
 
 enum GCoreAPI: String {
-    case authorization = "https://api.gcorelabs.com/iam/auth/jwt/login"
-    case videos = "https://api.gcorelabs.com/streaming/videos"
-    case refreshToken = "https://api.gcorelabs.com/iam/auth/jwt/refresh"
+    case authorization = "https://api.gcore.com/iam/auth/jwt/login"
+    case videos = "https://api.gcore.com/streaming/videos"
+    case refreshToken = "https://api.gcore.com/iam/auth/jwt/refresh"
 }
-
